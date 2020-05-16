@@ -1,0 +1,194 @@
+/**
+ * @file
+ * Flat header CSS file.
+ *
+ * @see ice.libraries.yml for 'global' library definition.
+ */
+
+header.Header,
+header.Header * {
+    transition: all 0.3s ease;
+}
+
+header.Header {
+    position: fixed;
+    z-index: 50;
+    top: 0;
+}
+
+header.flat .Header-wrapper {
+    display: flex;
+    justify-content: space-between;
+}
+
+/* Title */
+header.Header.flat .Header-title {
+    transform: translate(-25%, 100%); /* display: block !important; */
+}
+
+
+/* Flat header allow only for screen width > 768px */
+@media (min-width: 768px) {
+    header.Header.flat {
+        transform: translateY(-60%);
+    }
+    /* Logo */
+    header.Header.flat .Header-logo .logo-flat {
+        display: block;
+    }
+
+    header.Header.flat .Header-logo .logo-default {
+        display: none;
+    }
+
+    header.Header.flat .Header-logo .logo-flat {
+        transform-origin: top left;
+        transform: scale(0.4) translateY(190%);
+    }
+    header.Header.flat .Header-banner {
+        height: 0px;
+        overflow: hidden;
+    }
+
+    header.Header .container-flag,
+    header.Header .Header-menu {
+        transition-property: opacity;
+        transition-duration: 0.5s;
+        position: relative;
+    }
+
+    /* Logo */
+    header.Header .Header-logo {
+    }
+
+    /* Title */
+    header.Header.flat .Header-title h1 small {
+        font-size: 2.5rem !important;
+        line-height: 1.2 !important;
+        margin: 0;
+        padding-left: 0;
+    }
+
+    header.Header.flat .Header-title .Header-titleLink {
+        width: 85%;
+    }
+
+    header.Header .Header-title h1 small {
+        transition-duration: .1s;
+    }
+
+    /* Utils */
+    header.Header .Header-utils .block-language-link-block,
+    header.Header .Header-utils #top-menu,
+    header.Header .Header-utils .block-social-links-block {
+        transition-property: opacity;
+        transition-duration: 0.2s;
+        position: relative;
+    }
+
+    header.Header.flat .Header-utils .block-language-link-block,
+    header.Header.flat .Header-utils #top-menu,
+    header.Header.flat .Header-utils .block-social-links-block {
+        transition-delay: 0s;
+        opacity: 0;
+        top: -1000px;
+    }
+
+    header.Header .Header-utils .Header-search {
+        transition-duration: 0s;
+    }
+
+    header.Header.flat .Header-utils {
+        margin: 0 !important;
+        transform: translateX(9%);
+        width: auto !important;
+        float: right;
+    }
+
+    header.Header.flat .Header-utils .Header-search {
+    }
+
+    header.Header.flat .container-flag,
+    header.Header.flat .Header-menu {
+        transition-delay: .3s;
+        opacity: 0;
+        top: -1000px;
+        position: fixed;
+    }
+
+    header.Header.flat .Header-navbar {
+        /* transform: translateY(-60%); */
+    }
+
+    body.flat main#main {
+    }
+}
+/* Hamburger menu to make visible */
+@media (min-width: 768px ) {
+    header.Header.flat .Header-utils .Header-search .form-search.Form-input {
+        width: 80%;
+    }
+    header.Header.flat .Header-toggle .Hamburger-toggleContainer .Hamburger-toggle:before {
+        top: -1.1rem;
+    }
+    header.Header.flat .Header-toggle .Hamburger-toggleContainer .Hamburger-toggle:after {
+        bottom: -.7rem;
+    }
+    header.Header.flat .Header-toggle .Hamburger-toggleContainer .Header-toggleText {
+        margin-top: 1.3rem;
+    }
+    header.Header.flat .Header-toggle {
+        width: 48px !important;
+        transform: translateY(100%);
+        float: right;
+    }
+    header.Header.flat .Header-toggle .Hamburger-toggleContainer {
+        display: block !important;
+    }
+}
+/* Hamburger menu already visible */
+@media (min-width: 768px ) and (max-width: 991px) {
+    header.Header .Header-toggle {
+    }
+    header.Header.flat .Header-toggle {
+        width: auto !important;
+        transform: translateY(130%);
+    }
+}
+@media (min-width: 992px) {
+    header.Header.flat .Header-utils {
+        transform: translateX(15%);
+    }
+}
+@media (max-width: 1365px) {
+    header.Header.flat .Header-title {
+        transform: translate(-6%, 100%);
+    }
+}
+@media (min-width: 1366px) {
+    header.Header.flat .Header-utils {
+        transform: translateX(15%);
+    }
+    header.Header.flat .Header-toggle {
+        transform: translateY(150%);
+    }
+    header.Header .Header-toggle {
+        width: auto !important;
+        transform: translateX(1200%);
+    }
+}
+@media (max-width: 991px) {
+    header.Header.flat .Header-navbar {
+    }
+    header.Header.flat .Header-utils {
+        transform: translate(7%, 50%);
+    }
+}
+@media (max-width: 838px) {
+    /*header.Header.flat .Header-title {
+        display: none !important;
+    }*/
+    header.Header.flat .Header-utils {
+        transform: translate(38%, 50%);
+    }
+}

@@ -1,0 +1,46 @@
+{#
+/**
+ * @file
+ * Default theme implementation for social_links_block theme hook.
+ *
+ * Available variables:
+ * - social: an key/value array with
+ *   - key: the name of the social (twitter, facebook etc)
+ *   - $value is key/value array with these keys:
+ *     - icon: the icon to use
+ *     - url: the social website url
+ */
+#}
+
+{% set container_classes = [
+'Header-social',
+'Headroom-hideme',
+'u-cf',
+'u-padding-top-s',
+'u-padding-bottom-s'
+] %}
+
+{% if social %}
+    <div{{ attributes.addClass(container_classes) }}>
+
+        {# Title #}
+        {{ title_prefix }}
+        {% if social_title %}
+            <p>{{ social_title }}</p>
+        {% endif %}
+        {{ title_suffix }}
+
+        {# Listing social links #}
+        <ul class="Header-socialIcons">
+            {% for social_key, social_item in social %}
+                <li>
+                    <a href="{{ social_item.url }}">
+                        <span class="Icon Icon-{{ social_key }}"></span>
+                        <span class="u-hiddenVisually">{{ social_key|capitalize }}</span>
+                    </a>
+                </li>
+            {% endfor %}
+        </ul>
+
+    </div>
+{% endif %}

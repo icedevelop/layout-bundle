@@ -1,0 +1,27 @@
+{
+  "name": "retitalia/layout-bundle",
+  "type": "symfony-bundle",
+  "description": "This bundle implements the base layout for agid ita web toolkit",
+  "keywords": ["layout", "agid", "web-toolkit"],
+  "homepage": "https://github.com/RetItaliaSpA/LayoutBundle",
+  "license": "MIT",
+  "language": "PHP",
+  "require": {
+    "php": ">=5.5.9",
+    "guzzlehttp/guzzle": "^6.0"
+  },
+  "authors": [
+    {
+      "name": "Bruno Piccirilli",
+      "email": "brunopicci@icloud.com"
+    }
+  ],
+  "autoload":{
+    "psr-4":{
+      "retItalia\\LayoutBundle\\": ""
+    }
+  },
+  "extra": {
+    "symfony-assets-install": "symlink"
+  }
+}

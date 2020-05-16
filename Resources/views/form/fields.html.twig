@@ -1,0 +1,230 @@
+{# Blocchi del tema base ridefiniti #}
+
+{%- block form_errors -%}
+    {%- if errors|length > 0 -%}
+        {%- for error in errors -%}
+            {%- if error.cause -%}
+                <p class="u-text-p u-padding-r-bottom">{{ error.message }}</p>
+            {%- endif -%}
+        {%- endfor -%}
+    {%- endif -%}
+{%- endblock form_errors -%}
+
+{%- block form_row -%}
+    {%- set widget_attr = {} -%}
+    {%- if help is defined -%}
+        {%- if help is not empty -%}
+            {%- set widget_attr = {attr: {'aria-describedby': id ~"_help"}} -%}
+        {%- endif -%}
+    {%- endif -%}
+    {%- if form_errors(form)|length > 0 -%}
+        <div class="Form-field is-invalid">
+            <div class="Alert Alert--error Alert--withBg u-padding-r-top u-padding-r-bottom u-padding-r-right">
+                {{- form_errors(form) -}}
+                <strong>{{- form_label(form) -}}</strong>
+                {{- form_widget(form, widget_attr) -}}
+            </div>
+        </div>
+    {%- else -%}
+        <div class="Form-field">
+            <strong>{{- form_label(form) -}}</strong>
+            {{- form_widget(form, widget_attr) -}}
+        </div>
+    {%- endif -%}
+{%- endblock form_row -%}
+
+{%- block form_start -%}
+    {% set almenoUnaClasse=false %}
+    {%- do form.setMethodRendered() -%}
+    {% set method = method|upper %}
+    {%- if method in ["GET", "POST"] -%}
+        {% set form_method = method %}
+    {%- else -%}
+        {% set form_method = "POST" %}
+    {%- endif -%}
+<form{% if name != '' %} name="{{ name }}"{% endif %} method="{{ form_method|lower }}"{% if action != '' %} action="{{ action }}"{% endif %}{% set impostato=false %}{% for attrname, attrvalue in attr %} {% if "class"==attrname %}{% set almenoUnaClasse=true %}{{ attrname }}="{{ attrvalue }} Form Form--spaced u-padding-all-xl u-background-grey-10 u-text-r-xs u-layout-release"{% else %}{{ attrname }}="{{ attrvalue }}"{% endif %} {% set impostato=true %}{% endfor %} {% if false==almenoUnaClasse %}class="Form Form--spaced u-padding-all-xl u-background-grey-10 u-text-r-xs u-layout-release"{% endif %}{% if multipart %} enctype="multipart/form-data"{% endif %}>
+    {%- if errors|length > 0 -%}
+        <div class="Alert Alert--error Alert--withIcon u-margin-r-bottom" role="alert">
+            <p class="u-text-p u-padding-r-bottom">
+                {{ 'form.errore'|trans }}
+            </p>
+            {{ form_errors(form) }}
+        </div>
+    {%- endif -%}
+    {%- if form_method != method -%}
+        <input type="hidden" name="_method" value="{{ method }}" />
+    {%- endif -%}
+    {{- " " -}}
+<fieldset class="Form-fieldset">
+    {%- endblock form_start -%}
+
+    {%- block form_end -%}
+    {%- if not render_rest is defined or render_rest -%}
+        {{ form_rest(form) }}
+    {%- endif -%}
+</fieldset>
+    </form>
+{%- endblock form_end -%}
+
+{%- block button_attributes -%}
+    id="{{ id }}" name="{{ full_name }}"{% if disabled %} disabled="disabled"{% endif -%}
+    {{ block('attributes_agid_button') }}
+{%- endblock button_attributes -%}
+
+{%- block widget_attributes -%}
+    id="{{ id }}" name="{{ full_name }}"
+    {%- if disabled %} disabled="disabled"{% endif -%}
+    {%- if required %} required="required"{% endif -%}
+    {{ block('attributes_agid') }}
+{%- endblock widget_attributes -%}
+
+{%- block attributes_agid -%}
+    {% set impostato=false %}
+    {%- for attrname, attrvalue in attr -%}
+        {{- " " -}}
+        {%- if attrname in ['placeholder', 'title'] -%}
+            {{- attrname }}="{{ translation_domain is same as(false) ? attrvalue : attrvalue|trans({}, translation_domain) }}"
+        {%- elseif "class"==attrname -%}
+            {{- attrname }}="{{ attrvalue }} Form-input u-text-r-s u-borderRadius-m"
+            {% set impostato=true %}
+        {%- elseif attrvalue is same as(true) -%}
+            {{- attrname }}="{{ attrname }}"
+        {%- elseif attrvalue is not same as(false) -%}
+            {{- attrname }}="{{ attrvalue }}"
+        {%- endif -%}
+    {%- endfor -%}
+    {{- " " -}}
+    {% spaceless %}
+        {% if false==impostato %}
+            class="Form-input u-text-r-s u-borderRadius-m"
+        {% endif %}
+    {% endspaceless %}
+{%- endblock attributes_agid -%}
+
+{%- block attributes_agid_button -%}
+    {% set impostato=false %}
+    {%- for attrname, attrvalue in attr -%}
+        {{- " " -}}
+        {%- if attrname in ['placeholder', 'title'] -%}
+            {{- attrname }}="{{ translation_domain is same as(false) ? attrvalue : attrvalue|trans({}, translation_domain) }}"
+        {%- elseif "class"==attrname -%}
+            {{- attrname }}="{{ attrvalue }} Button Button--default u-text-r-xs"
+            {% set impostato=true %}
+        {%- elseif attrvalue is same as(true) -%}
+            {{- attrname }}="{{ attrname }}"
+        {%- elseif attrvalue is not same as(false) -%}
+            {{- attrname }}="{{ attrvalue }}"
+        {%- endif -%}
+    {%- endfor -%}
+    {{- " " -}}
+    {% spaceless %}
+        {% if false==impostato %}
+            class="Button Button--default u-text-r-xs"
+        {% endif %}
+    {% endspaceless %}
+{%- endblock attributes_agid_button -%}
+
+{# Blocchi dei custom types #}
+
+{% block agid_date_widget %}
+    {% if form_errors(form) is not empty %}
+        <div class="Form-field is-invalid">
+            <div class="Grid Grid--alignMiddle Grid--fit Grid--withGutter">
+                <div class="Grid-cell u-md-size10of12 u-lg-size10of12">
+                    <div class="Alert Alert--error Alert--withBg u-padding-r-top u-padding-r-bottom u-padding-r-right">
+                        <p id="error-descrizione" class="u-text-p u-padding-r-bottom">{{ form_errors(form) }}</p>
+                        <strong>{{ form_label(form) }}</strong>
+                        {{ form_widget(form, {'attr': {'aria-invalid': 'true', 'aria-describedby': 'error-descrizione'}}) }}
+                    </div>
+                </div>
+                <div class="Grid-cell u-md-size2of12 u-lg-size2of12">
+                    <button type="button" aria-describedby="{{ form.vars.id }}" aria-controls="{{ form.vars.id }}">
+                        <span class="u-hiddenVisually">Seleziona la data</span>
+                        <span class="Icon-calendar u-text-r-l"></span>
+                    </button>
+                </div>
+            </div>
+        </div>
+    {% else %}
+        <div class="Form-field">
+            <strong>{{ form_label(form) }}</strong>
+            <div class="Grid Grid--alignMiddle Grid--fit Grid--withGutter">
+                <div class="Grid-cell u-md-size10of12 u-lg-size10of12">
+                    {{ form_widget(form) }}
+                </div>
+                <div class="Grid-cell u-md-size2of12 u-lg-size2of12">
+                    <button type="button" aria-describedby="{{ form.vars.id }}" aria-controls="{{ form.vars.id }}">
+                        <span class="u-hiddenVisually">Seleziona la data</span>
+                        <span class="Icon-calendar u-text-r-l"></span>
+                    </button>
+                </div>
+            </div>
+        </div>
+    {% endif %}
+{% endblock agid_date_widget %}
+
+{% block albero_widget %}
+    {% if form_errors(form) is not empty %}
+        <div class="Form-field is-invalid">
+            <div class="Alert Alert--error Alert--withBg u-padding-r-top u-padding-r-bottom u-padding-r-right">
+                {{ form_widget(form, {'attr': {'aria-invalid': 'true', 'aria-describedby': 'error-descrizione'}}) }}
+                <p id="error-descrizione" class="u-text-p u-padding-r-bottom">{{ form_errors(form) }}</p>
+                <strong>{{ form_label(form) }}</strong>
+                <input class="Form-input" id="jstree_{{ form.vars.id }}_q" type="text" placeholder="{{ 'cerca.settori'|trans }}" onkeyup="cercaInAlbero(this);" />
+                <div id="jstree_{{ form.vars.id }}" class="jstree-default jstree-anchor jstree-default jstree-leaf jstree-leaf"></div>
+            </div>
+        </div>
+    {% else %}
+        <div class="Form-field">
+            {{ form_widget(form) }}
+            <strong>{{ form_label(form) }}</strong>
+            <input class="Form-input" id="jstree_{{ form.vars.id }}_q" type="text" placeholder="{{ 'cerca.settori'|trans }}" onkeyup="cercaInAlbero(this);" />
+            <div id="jstree_{{ form.vars.id }}" class="jstree-default jstree-anchor jstree-default jstree-leaf jstree-leaf"></div>
+        </div>
+    {% endif %}
+    <script type="text/javascript">
+        $(document).ready( function () {
+            var treeOrigin{{ form.vars.id }} = {{ form.vars.attr.data | raw }};
+            {% set multiCheck='false' %}
+            {% set autoCheckChild='false' %}
+            {% if form.vars.action is defined and form.vars.action is not null  %}
+                {% if form.vars.action.multiCheck is defined and true==form.vars.action.multiCheck|default(false)  %}
+                    {% set multiCheck='true' %}
+                {% endif %}
+                {% if form.vars.action.autoCheckChild is defined and true==form.vars.action.autoCheckChild|default(false) %}
+                    {% set autoCheckChild='true' %}
+                {% endif %}
+            {% endif %}
+            gestisciAlberi(treeOrigin{{ form.vars.id }},"#jstree_{{ form.vars.id }}","{{ form.vars.id }}", null, {{ autoCheckChild }}, {{ multiCheck }});
+            $("form").submit(function( event ) {
+                document.getElementById("{{ form.vars.id }}").value = String($("#jstree_{{ form.vars.id }}").jstree("get_checked"));
+            });
+        });
+    </script>
+{% endblock albero_widget %}
+
+{% block file_widget %}
+    {% spaceless %}
+        {% set type = type|default('file') %}
+        {%- set widget_attr = {} -%}
+        {%- if help is defined -%}
+            {%- if help is not empty -%}
+                {%- set widget_attr = {attr: {'aria-describedby': id ~"_help"}} -%}
+            {%- endif -%}
+        {%- endif -%}
+        {%- if form_errors(form)|length > 0 -%}
+            <div class="Form-field is-invalid">
+                <div class="Alert Alert--error Alert--withBg u-padding-r-top u-padding-r-bottom u-padding-r-right">
+                    {{- form_errors(form) -}}
+                    <strong>{{- form_label(form) -}}</strong>
+                    {{- form_widget(form, widget_attr) -}}
+                </div>
+            </div>
+        {%- else -%}
+            <div class="Form-field">
+                <strong>{{- form_label(form) -}}</strong>
+                {{- form_widget(form, widget_attr) -}}
+            </div>
+        {%- endif -%}
+    {% endspaceless %}
+{% endblock file_widget %}

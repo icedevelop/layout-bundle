@@ -1,0 +1,56 @@
+.ice-carousel-slide-hp .wrapper-slide {}
+.ice-slideshow-hp-block .wrapper-button {
+    top: 0;
+    z-index: 2;
+}
+.ice-slideshow-hp-block .wrapper-carousel-buttons {
+    top: 39%;
+    z-index: 2;
+}
+.ice-slideshow-hp-block .wrapper-carousel-buttons button {
+    opacity: 0.8;
+}
+.ice-slideshow-hp-block .wrapper-carousel-buttons button:hover {
+    opacity: 1;
+    cursor: pointer;
+}
+.ice-slideshow-hp-block .wrapper-button i {
+    text-shadow: 0 0 1px rgba(0, 0, 0, 0.32);
+    background-color: rgba(165, 171, 174, 0.51);
+}
+.ice-slideshow-hp-block .wrapper-button i:hover {
+    cursor: pointer;
+    background-color: #888d90 !important;
+}
+.ice-carousel-slide-hp.owl-carousel .owl-dots {
+    position: absolute;
+    top: 0;
+    left: 8rem;
+}
+.ice-carousel-slide-hp.owl-theme .owl-dots {
+    margin-top: 7px !important;
+}
+.ice-carousel-slide-hp.owl-theme .owl-dots .owl-dot button.dot-button {
+    width: 1.5rem;
+    height: 1.5rem;
+    border-radius: 2px;
+    margin-top: 0;
+    margin-right: 5px;
+    background-color: rgba(165, 171, 174, 0.51);
+}
+.ice-carousel-slide-hp.owl-theme .owl-dots .owl-dot.active button.dot-button,
+.ice-carousel-slide-hp.owl-theme .owl-dots .owl-dot:hover button.dot-button {
+    background-color: rgb(165, 171, 174);
+}
+.ice-carousel-slide-hp.owl-carousel .wrapper-image {
+    overflow: hidden;
+}
+.ice-carousel-slide-hp.owl-carousel .owl-item .wrapper-image img {
+    width: auto;
+}
+.ice-carousel-slide-hp .wrapper-body {
+    bottom: 0;
+    font-size: 3rem !important;
+    background-color: rgba(49, 56, 62, 0.69);
+    text-shadow: 0 0 16px #000000;
+}

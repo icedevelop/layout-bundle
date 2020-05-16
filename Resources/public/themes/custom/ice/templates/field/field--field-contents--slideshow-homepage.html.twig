@@ -1,0 +1,123 @@
+{#
+/**
+ * @file
+ * Theme override for a field.
+ *
+ * To override output, copy the "field.html.twig" from the templates directory
+ * to your theme's directory and customize it, just like customizing other
+ * Drupal templates such as page.html.twig or node.html.twig.
+ *
+ * Instead of overriding the theming for all fields, you can also just override
+ * theming for a subset of fields using
+ * @link themeable Theme hook suggestions. @endlink For example,
+ * here are some theme hook suggestions that can be used for a field_foo field
+ * on an article node type:
+ * - field--node--field-foo--article.html.twig
+ * - field--node--field-foo.html.twig
+ * - field--node--article.html.twig
+ * - field--field-foo.html.twig
+ * - field--text-with-summary.html.twig
+ * - field.html.twig
+ *
+ * Available variables:
+ * - attributes: HTML attributes for the containing element.
+ * - label_hidden: Whether to show the field label or not.
+ * - title_attributes: HTML attributes for the title.
+ * - label: The label for the field.
+ * - multiple: TRUE if a field can contain multiple items.
+ * - items: List of all the field items. Each item contains:
+ *   - attributes: List of HTML attributes for each item.
+ *   - content: The field item's content.
+ * - entity_type: The entity type to which the field belongs.
+ * - field_name: The name of the field.
+ * - field_type: The type of the field.
+ * - label_display: The display settings for the label.
+ *
+ * @see template_preprocess_field()
+ */
+#}
+
+{{ attach_library('ice/ice-owl-carousel-base') }}
+{{ attach_library('ice/ice-slideshow-hp') }}
+{{ attach_library('ice_services/fontawesome') }}
+
+{% set slide_classes = ['Carousel-item'] %}
+{% set command_icon_classes = [
+'fa',
+'u-padding-all-xs',
+'u-borderRadius-s'
+] %}
+
+
+{# Pause button #}
+<div class="u-posAbsolute wrapper-button u-color-white u-padding-all-xs">
+  {# Pause #}
+  <button class="stop u-color-white" aria-controls="multimedia-carousel-hp">
+    <i class="fa-pause {{ command_icon_classes | join(' ') }}"
+       aria-hidden="true"></i>
+    <span class="u-hiddenVisually">
+      {{ 'Stop autoplay' | t }}
+    </span>
+  </button>
+  {# Play #}
+  <button class="play u-color-white" aria-controls="multimedia-carousel-hp">
+    <i class="fa-play {{ command_icon_classes | join(' ') }}"
+       aria-hidden="true"></i>
+    <span class="u-hiddenVisually">
+      {{ 'Restart autoplay' | t }}
+    </span>
+  </button>
+</div>
+
+<div class="owl-carousel slideshow owl-theme ice-carousel-slide-hp u-posRelative"
+     role="region"
+     id="multimedia-carousel-hp">
+
+  {% for item in items %}
+    <div{{ item.attributes.addClass(slide_classes) }}>
+      {{ item.content }}
+    </div>
+  {% endfor %}
+
+</div>
+
+{# Prev / Next buttons #}
+{% set prev_next_classes = [
+'u-posAbsolute',
+'u-sizeFull',
+'u-flex',
+'u-flexJustifyBetween',
+'u-padding-left-xs',
+'u-padding-right-xs',
+'u-text-r-xl',
+'wrapper-carousel-buttons'
+] %}
+<div class="{{ prev_next_classes | join(' ') }}">
+
+  {# Prev button #}
+  <button class="owl-prev u-color-white"
+          aria-controls="multimedia-carousel-hp">
+    <span class="u-hiddenVisually">
+      {{ 'Go to previous slide' | t }}
+    </span>
+    <i class="fa fa-chevron-left"
+       role="presentation"
+       aria-hidden="true"></i>
+  </button>
+
+  {# Next button #}
+  <button class="owl-next u-color-white"
+          aria-controls="multimedia-carousel-hp">
+    <span class="u-hiddenVisually">
+      {{ 'Go to next slide' | t }}
+    </span>
+    <i class="fa fa-chevron-right"
+       role="presentation"
+       aria-hidden="true"></i>
+  </button>
+
+  {# Caption #}
+  <p class="u-hiddenVisually">
+    {{ 'Navigation from keyboard possible' | t }}
+  </p>
+</div>

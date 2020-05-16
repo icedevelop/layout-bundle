@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html>
+<head>
+    {{ render(controller('retItaliaLayoutBundle:Default:EstraiHeadPortale')) }}
+    <meta charset="UTF-8" />
+    <title>{% block title %}Welcome!{% endblock %}</title>
+    {% block stylesheets %}{% endblock %}
+    <link rel="stylesheet" href="{{ retItalia_LayoutBundle.getProgettoIntranet }}/bundles/retitalialayout/themes/custom/ice/css/flat-header.css" media="all" />
+    <link rel="stylesheet" href="{{ retItalia_LayoutBundle.getProgettoIntranet }}/bundles/retitalialayout/themes/stable/css/system/components/hidden.module.css" media="all" />
+    {% block scriptJs %}{% endblock %}
+    <link rel="icon" type="image/x-icon" href="{{ asset('favicon.ico') }}" />
+</head>
+<body class="t-Pac iwt-italiagov">
+{{ render(controller('retItaliaLayoutBundle:Default:EstraiHeaderPortale')) }}
+<br>
+<main id="main" role="main">
+    <section class="u-padding-r-top u-padding-r-bottom">
+        <div class="u-layout-wide u-layoutCenter u-layout-r-withGutter">
+            <nav aria-label="sei qui:" role="navigation">
+                <ul class="Breadcrumb">
+                    {% block breadcrumb %}{% endblock %}
+                </ul>
+            </nav>
+            {% block tastiFunzione %}{% endblock %}
+        </div>
+    </section>
+    <section class="u-padding-r-top u-padding-r-bottom">
+        <div class="u-layout-wide u-layoutCenter u-layout-r-withGutter">
+            <div class="Grid Grid--withGutter">
+                <div class="Grid-cell u-md-size1of1 u-lg-size1of1">
+                    <div class="block-system-main-block">
+                        <article role="article" about="Contenuto" typeof="schema:WebPage">
+                            <div>
+                                {% block body %}{% endblock %}
+                            </div>
+                        </article>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+</main>
+{{ render(controller('retItaliaLayoutBundle:Default:EstraiEndPortale')) }}
+{% block javascripts %}{% endblock %}
+<script language="JavaScript">
+    $(function(){
+        var header = $('header.Header');
+        var main = $('main#main');
+        var header_h = $(header).outerHeight();
+        console.info('Header h: ' + header_h);
+        // Make the body page start at the end of the header height.
+        $(main).css('padding-top', header_h);
+
+        $(window).on('scroll', function () {
+            var cssClass = 'flat';
+            var body = $('body');
+
+            if ($(this).scrollTop() > 80    ) {
+                header.addClass(cssClass);
+                body.addClass(cssClass);
+            } else {
+                header.removeClass(cssClass);
+                body.removeClass(cssClass);
+            }
+        });
+
+    });
+</script>
+</body>
+</html>

@@ -1,0 +1,87 @@
+global:
+  css:
+    theme:
+      css/style.css: {}
+      css/highcharts-theme.css: {}
+      css/flat-header.css: {}
+      css/overrides.css: {}
+  js:
+    js/scripts.js: {}
+    js/flat-header.js: {}
+  dependencies:
+    - core/drupal
+    - core/jquery
+    - ice/highcharts
+    - ice/ita-web-toolkit
+
+highcharts:
+  version: 5.0.10
+  css:
+    theme:
+      css/highcharts.css: {}
+  js:
+    vendor/highcharts/highcharts.js: {}
+    vendor/proj4js/proj4.js: {}
+    vendor/highcharts/modules/data.js: {}
+    vendor/highcharts/modules/map.js: {}
+    vendor/highcharts/modules/heatmap.js: {}
+    vendor/highcharts/maps/it/it-regions.js: {}
+    vendor/highcharts/modules/exporting.js: {}
+  dependencies:
+    - core/jquery
+    - core/drupal
+    - core/drupalSettings
+
+counterup:
+  version: 1.0
+  js:
+    vendor/waypoints/jquery.waypoints.min.js: {}
+    vendor/counter-up/jquery.counterup.min.js: {}
+  dependencies:
+    - core/jquery
+
+pace:
+  version: 1.0.2
+  header: true
+  js:
+    js/pace.config.js: {}
+    vendor/pace/pace.min.js: {}
+  css:
+    component:
+      css/pace.css: {}
+
+fullcalendar:
+  version: 3.4.0
+  css:
+    theme:
+      /libraries/fullcalendar/fullcalendar/dist/fullcalendar.min.css: {}
+  js:
+    /libraries/fullcalendar/moment/min/moment.min.js: {}
+    /libraries/fullcalendar/fullcalendar/dist/fullcalendar.min.js: {}
+    /libraries/fullcalendar/fullcalendar/dist/locale/it.js: {}
+  dependencies:
+    - core/jquery
+    - core/jquery.once
+    - core/drupal
+    - core/drupalSettings
+
+ice-owl-carousel-base:
+  js:
+    /libraries/OwlCarousel2/dist/owl.carousel.min.js: {}
+  css:
+    theme:
+      /libraries/OwlCarousel2/dist/assets/owl.carousel.min.css : {}
+      /libraries/OwlCarousel2/dist/assets/owl.theme.default.min.css: {}
+  dependencies:
+    - core/jquery
+
+ice-slideshow-generic:
+  js:
+    js/ice-slideshow-generic.js: {}
+
+ice-slideshow-hp:
+  js:
+    js/ice-slideshow-hp.js: {}
+  css:
+    theme:
+      css/ice-slideshow-hp.css: {}

@@ -1,0 +1,18 @@
+{% set numeroInternoBase=0 %}
+{% if numeroIdentificativoPaginaBase is defined %}
+    {% set numeroInternoBase=numeroIdentificativoPaginaBase %}
+{% endif %}
+{% if 1==numeroInternoBase %}
+<li role="treeitem" class="u-border-left-m">
+{% else %}
+<li role="treeitem">
+    {% endif %}
+    <a href="#">Ricerca Evento</a>
+</li>
+{% if 2==numeroInternoBase %}
+<li role="treeitem" class="u-border-left-m">
+    {% else %}
+<li role="treeitem">
+    {% endif %}
+    <a href="#">Inserimento Evento</a>
+</li>

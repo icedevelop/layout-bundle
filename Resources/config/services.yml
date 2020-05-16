@@ -1,0 +1,6 @@
+services:
+  servizio.caching:
+    class: retItalia\LayoutBundle\Entity\Caching
+  parameters_class:
+      class: retItalia\LayoutBundle\Entity\Parameters
+      arguments: ["%progetto_intranet%","%ws_sezioni_intranet%","%url_toolkit%"]

@@ -1,0 +1,32 @@
+{#
+/**
+ * @file
+ * Theme override for twitter block.
+ *
+ * Available variables:
+ * - content: Content of twitter streaming
+ */
+#}
+
+{% set classes = [
+'block-' ~ configuration.id|clean_class,
+] %}
+
+<div{{ attributes.addClass(classes) }}>
+  {{ title_prefix }}
+  {% if label %}
+    <h2{{ title_attributes }}>{{ label|t }}</h2>
+  {% endif %}
+  {{ title_suffix }}
+  {% block content %}
+    <div class="Twitter-block-title">
+      <img class="Twitter-logo" src={{ '/' ~ directory ~ '/images/twitter.png' }}>
+      <a href="https://twitter.com/ITAtradeagency">
+        <span title="@ITAtradeagency">@ITAtradeagency</span>
+      </a>
+    </div>
+    <div>
+      {{ content }}
+    </div>
+  {% endblock %}
+</div>

@@ -1,0 +1,56 @@
+{% extends "block.html.twig" %}
+
+{% block content %}
+  <div class="Grid Grid--withGutter" xmlns="http://www.w3.org/1999/html">
+
+    {# Body side #}
+    <div class="Grid-cell u-md-size8of12 u-lg-size8of12">
+
+      {# Hard coded demo test (for presentation purpose) #}
+      <div class="u-padding-r-all Prose">
+        <p>L'ICE-Agenzia promuove i rapporti economici dell’Italia con l'estero
+          sostenendo le aziende italiane nel processo di
+          internazionalizzazione.
+          Affianca le imprese italiane attraverso un’offerta integrata di
+          servizi
+          di informazione, formazione, promozione e consulenza per conoscere i
+          mercati esteri, individuare nuove opportunità, consolidare le
+          relazioni
+          internazionali.</p>
+      </div>
+
+      {# Content: service accordion #}
+      <div class="u-padding-r-all">
+        {{ content }}
+      </div>
+
+      {# Hard coded demo test (for presentation purpose) #}
+      <div class="u-padding-r-all Prose">
+        <p>Di seguito potrete scaricare/stampare il nuovo Catalogo dei Servizi e
+          la Carta dei servizi al cliente:
+        <ul class="ICE-bullets servizi Prose Bullets">
+          <li><a target="_blank"
+                 href="/modules/custom/ice_fixtures/assets/pdf/Catalogo_servizi.pdf">Catalogo dei Servizi (pdf)</a></li>
+          <li><a target="_blank"
+                 href="/modules/custom/ice_fixtures/assets/pdf/CartaServizi-maggio2017.pdf">La Carta dei servizi al cliente (pdf)</a></li>
+        </ul>
+        </p>
+        <p>Per i servizi personalizzati a pagamento sono previste diverse forme
+          di
+          sconto: per info <a href="/scontistica-in-vigore">SCONTISTICA IN
+            VIGORE</a></p>
+      </div>
+    </div>
+
+    {# Right side #}
+    <div class="Grid-cell u-md-size4of12 u-lg-size4of12">
+      <a href="/sezione-in-lavorazione" title="Servizi banner" target="_blank">
+        <img class="u-sizeFull"
+             src="/sites/default/files/paragraph_image/bannerDemo.jpg"
+             alt="Servizi banner"
+             title="Servizi banner"/>
+      </a>
+    </div>
+
+  </div>
+{% endblock %}

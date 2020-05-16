@@ -1,0 +1,43 @@
+name: ICE
+type: theme
+description: A custom theme for ICE. Subtheme of Italiagov.
+package: ICE
+core: 8.x
+
+base theme: italiagov
+
+regions:
+  cookiebar: Cookie bar
+  header_top: Header top
+  header_branding: Header branding
+  header_search: Header search
+  header_bottom : Header bottom
+  offcanvas: Offcanvas
+  breadcrumb: Breadcrum
+  help: Help
+  slideshow: Slideshow
+  hero: Hero
+  content: Content
+  sidebar_right: Sidebar Right
+  postscript_first: Postscript First
+  postscript_second: Postscript Second
+  postscript_third: Postscript Third
+  postscript_fourth: Postscript Fourth
+  leads : Leads
+  pre_footer : Pre Footer
+  footer_top : Footer top
+  footer_top_right : Footer top right
+  footer_middle_one : Footer middle One
+  footer_middle_two : Footer middle Two
+  footer_middle_three : Footer middle Three
+  footer_middle_four : Footer middle Four
+  footer_bottom : Footer bottom
+
+libraries:
+  - italiagov/ita-web-toolkit
+  - italiagov/global
+  - ice/pace
+  - ice/counterup
+  - ice/highcharts
+#  - ice/ice-carousel
+  - ice/global

@@ -1,0 +1,54 @@
+/*NEWS & TWITTER*/
+#main div.block-news-dal-mondo-block {
+    background-color: #fff;
+    width: 80%;
+    float: left;
+    margin: 20px 0px 20px 40px;
+}
+#main div.block-news-dal-mondo-block div#latest-news-header {
+    background-color: #eee;
+    color: #004D99;
+    font-size: 24px;
+    font-weight: 600;
+    padding-bottom: 10px;
+    text-align: left !important;
+}
+#main div.block-news-dal-mondo-block div.latest-news-item {
+    border-top: 1px solid #004D99;
+    position: relative;
+    overflow: hidden;
+    margin: 10px 0;
+    padding-top: 10px
+}
+.jstree-default a {
+    white-space:normal !important; height: auto;
+}
+.jstree-anchor {
+    height: auto !important;
+}
+.jstree-default li > ins {
+    vertical-align:top;
+}
+.jstree-leaf {
+    height: auto;
+}
+.jstree-leaf a{
+    height: auto !important;
+}
+.no_checkbox > i.jstree-checkbox {
+    display:none;
+}
+#main div.block-notizie-dal-mondo-block {
+    width: 80%;
+}
+
+#main div.altezzaPdf {
+    height: 500px;
+    border: 1px solid #666;
+}
+
+/* This gets Facebook to fall into place */
+.allineaTop {
+    vertical-align: top;
+
+}

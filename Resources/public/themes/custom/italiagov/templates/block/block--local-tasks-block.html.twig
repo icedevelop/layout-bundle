@@ -1,0 +1,14 @@
+{% extends "block--reset.html.twig" %}
+{#
+/**
+ * @file
+ * Theme override for tabs.
+ *
+ * @ingroup templates
+ */
+#}
+{% block content %}
+  <nav class="drupalTabs" role="navigation" aria-label="{{ 'Tabs'|t }}">
+    {{ content }}
+  </nav>
+{% endblock %}

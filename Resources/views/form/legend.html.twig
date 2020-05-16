@@ -1,0 +1,17 @@
+{% block legend %}
+    {% spaceless %}
+    <legend class="Form-legend" id="attiva{{ id }}" title="{{ text }}">
+    {% if expand is not empty %}
+        {% if true==expand %}
+            <span id="sp{{ id }}" class="u-text-r-xs Icon Icon-expand">&nbsp;</span>
+        {% endif %}
+    {% endif %}
+        {{ text }}
+    </legend>
+    {% endspaceless %}
+    {% spaceless %}
+    <div itemprop="sezionerollover" id="{{ id }}" class="top-div-legend">
+        {% block content %}{% endblock %}
+    </div>
+    {% endspaceless %}
+{% endblock %}

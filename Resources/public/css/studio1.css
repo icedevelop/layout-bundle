@@ -1,0 +1,49 @@
+
+.jstree-default a {
+    white-space:normal !important; height: auto;
+}
+.jstree-anchor {
+    height: auto !important;
+}
+.jstree-default li > ins {
+    vertical-align:top;
+}
+.jstree-leaf {
+    height: auto;
+}
+.jstree-leaf a{
+    height: auto !important;
+}
+.no_checkbox > i.jstree-checkbox {
+    display:none;
+}
+
+@media screen and (min-width:205px) and (max-width:991px) {
+    P.spaceOverCalendar{
+        font-size: 0rem !important;
+    }
+    P.spaceBottomCalendar{
+        font-size: 3rem !important;
+    }
+    P.spaceOverCalendarError{
+        font-size: 2rem !important;
+    }
+    P.spaceBottomCalendarError{
+        font-size: 3rem !important;
+    }
+}
+
+@media screen and (min-width:992px) {
+    P.spaceOverCalendar{
+        font-size: 3rem !important;
+    }
+    P.spaceBottomCalendar{
+        font-size: 0rem !important;
+    }
+    P.spaceOverCalendarError{
+        font-size: 9rem !important;
+    }
+    P.spaceBottomCalendarError{
+        font-size: 0rem !important;
+    }
+}

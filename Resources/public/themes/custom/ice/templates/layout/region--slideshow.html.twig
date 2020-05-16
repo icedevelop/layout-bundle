@@ -1,0 +1,18 @@
+{#
+/**
+ * @file
+ * Theme override to display Slideshow region.
+ */
+#}
+
+{% if content %}
+  {% set classes = [
+  custom_classes,
+  ] %}
+
+  <section{{ attributes.addClass(classes) }}>
+    <div class="u-layout-wide u-layoutCenter u-layout-r-withGutter u-padding-top-m">
+      {{ content }}
+    </div>
+  </section>
+{% endif %}
