@@ -1,6 +1,6 @@
 <?php
 
-namespace retItalia\LayoutBundle\DependencyInjection;
+namespace iceDevelop\LayoutBundle\DependencyInjection;
 
 use Symfony\Component\DependencyInjection\ContainerBuilder;
 use Symfony\Component\Config\FileLocator;

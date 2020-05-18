@@ -6,7 +6,7 @@
  * Time: 5:07 PM
  */
 
-namespace retItalia\LayoutBundle\Entity;
+namespace iceDevelop\LayoutBundle\Entity;
 
 /**
  * Class CachedObject

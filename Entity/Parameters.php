@@ -6,7 +6,7 @@
  * Time: 12.55
  */
 
-namespace retItalia\LayoutBundle\Entity;
+namespace iceDevelop\LayoutBundle\Entity;
 
 
 class Parameters

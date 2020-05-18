@@ -1,6 +1,6 @@
 <?php
 
-namespace retItalia\LayoutBundle;
+namespace iceDevelop\LayoutBundle;
 
 use Symfony\Component\HttpKernel\Bundle\Bundle;
 

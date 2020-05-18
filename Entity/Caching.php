@@ -6,7 +6,7 @@
  * Time: 4:32 PM
  */
 
-namespace retItalia\LayoutBundle\Entity;
+namespace iceDevelop\LayoutBundle\Entity;
 
 class Caching
 {

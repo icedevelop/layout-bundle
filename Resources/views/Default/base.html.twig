@@ -1,17 +1,17 @@
 <!DOCTYPE html>
 <html>
 <head>
-    {{ render(controller('retItaliaLayoutBundle:Default:EstraiHeadPortale')) }}
+    {{ render(controller('iceDevelopLayoutBundle:Default:EstraiHeadPortale')) }}
     <meta charset="UTF-8" />
     <title>{% block title %}Welcome!{% endblock %}</title>
     {% block stylesheets %}{% endblock %}
-    <link rel="stylesheet" href="{{ retItalia_LayoutBundle.getProgettoIntranet }}/bundles/retitalialayout/themes/custom/ice/css/flat-header.css" media="all" />
-    <link rel="stylesheet" href="{{ retItalia_LayoutBundle.getProgettoIntranet }}/bundles/retitalialayout/themes/stable/css/system/components/hidden.module.css" media="all" />
+    <link rel="stylesheet" href="{{ retItalia_LayoutBundle.getProgettoIntranet }}/bundles/icedeveloplayout/themes/custom/ice/css/flat-header.css" media="all" />
+    <link rel="stylesheet" href="{{ retItalia_LayoutBundle.getProgettoIntranet }}/bundles/icedeveloplayout/themes/stable/css/system/components/hidden.module.css" media="all" />
     {% block scriptJs %}{% endblock %}
     <link rel="icon" type="image/x-icon" href="{{ asset('favicon.ico') }}" />
 </head>
 <body class="t-Pac iwt-italiagov">
-{{ render(controller('retItaliaLayoutBundle:Default:EstraiHeaderPortale')) }}
+{{ render(controller('iceDevelopLayoutBundle:Default:EstraiHeaderPortale')) }}
 <br>
 <main id="main" role="main">
     <section class="u-padding-r-top u-padding-r-bottom">
@@ -41,7 +41,7 @@
     </section>
 
 </main>
-{{ render(controller('retItaliaLayoutBundle:Default:EstraiEndPortale')) }}
+{{ render(controller('iceDevelopLayoutBundle:Default:EstraiEndPortale')) }}
 {% block javascripts %}{% endblock %}
 <script language="JavaScript">
     $(function(){
