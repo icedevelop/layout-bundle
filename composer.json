@@ -1,5 +1,5 @@
 {
-  "name": "icedevelop/layout-bundle",
+  "name": "retitalia/layout-bundle",
   "type": "symfony-bundle",
   "description": "This bundle implements the base layout for agid ita web toolkit",
   "keywords": ["layout", "agid", "web-toolkit"],
@@ -18,7 +18,7 @@
   ],
   "autoload":{
     "psr-4":{
-      "iceDevelop\\LayoutBundle\\": ""
+      "retitalia\\LayoutBundle\\": ""
     }
   },
   "extra": {
