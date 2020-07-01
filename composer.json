@@ -3,7 +3,7 @@
   "type": "symfony-bundle",
   "description": "This bundle implements the base layout for agid ita web toolkit",
   "keywords": ["layout", "agid", "web-toolkit"],
-  "homepage": "https://github.com/RetItaliaSpA/LayoutBundle",
+  "homepage": "https://github.com/icedevelop/LayoutBundle",
   "license": "MIT",
   "language": "PHP",
   "require": {
